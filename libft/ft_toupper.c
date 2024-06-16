@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojanos <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 13:18:02 by ojanos            #+#    #+#             */
-/*   Updated: 2024/05/24 13:26:46 by ojanos           ###   ########.fr       */
+/*   Created: 2024/03/07 11:09:07 by ojanos            #+#    #+#             */
+/*   Updated: 2024/03/07 11:31:23 by ojanos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_toupper(int c)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
 
 /*int main(void)
 {
-    char *message = "Hello, World!\n";
-    int fd = STDOUT_FILENO;
+    int lowercase = 'a';
+    int uppercase = ft_toupper(lowercase);
+    printf("Uppercase of '%c' is '%c'\n", lowercase, uppercase);
 
-    ft_putstr_fd(message, fd);
+    int notLowercase = '3';
+    int notChanged = ft_toupper(notLowercase);
+    printf("'%c' remains unchanged: '%c'\n", notLowercase, notChanged);
 
     return 0;
 }*/

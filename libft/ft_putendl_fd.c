@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojanos <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 13:18:02 by ojanos            #+#    #+#             */
-/*   Updated: 2024/05/24 13:26:46 by ojanos           ###   ########.fr       */
+/*   Created: 2024/05/24 13:29:38 by ojanos            #+#    #+#             */
+/*   Updated: 2024/05/24 13:38:46 by ojanos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }
 
 /*int main(void)
 {
-    char *message = "Hello, World!\n";
+    char *message = "Hello, World!";
     int fd = STDOUT_FILENO;
 
-    ft_putstr_fd(message, fd);
+    ft_putendl_fd(message, fd);
 
     return 0;
 }*/

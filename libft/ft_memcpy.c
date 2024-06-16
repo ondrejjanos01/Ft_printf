@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojanos <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 13:18:02 by ojanos            #+#    #+#             */
-/*   Updated: 2024/05/24 13:26:46 by ojanos           ###   ########.fr       */
+/*   Created: 2024/05/21 10:43:17 by ojanos            #+#    #+#             */
+/*   Updated: 2024/05/21 10:54:59 by ojanos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	char	*s;
+	char	*d;
+	size_t	i;
 
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	i = 0;
-	while (s[i] != '\0')
+	d = (char *)dest;
+	s = (char *)src;
+	while (i < n)
 	{
-		write(fd, &s[i], 1);
+		d[i] = s[i];
 		i++;
 	}
+	return (dest);
 }
 
 /*int main(void)
 {
-    char *message = "Hello, World!\n";
-    int fd = STDOUT_FILENO;
+    char src[] = "Hello, World!";
+    char dest[20];
 
-    ft_putstr_fd(message, fd);
+    ft_memcpy(dest, src, strlen(src) + 1);
+    printf("Copied string: %s\n", dest);
 
     return 0;
 }*/
