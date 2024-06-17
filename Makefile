@@ -12,8 +12,8 @@
 
 Library = ft_printf
 
-files = ft_pointer_print\
-	ft_printpoint\
+files = ft_printadress\
+	ft_hexaprint\
 	ft_putchar\
 	ft_putchar_fd\
 	ft_putnbr\
@@ -23,6 +23,7 @@ files = ft_pointer_print\
 	ft_strlen\
 	ft_unsigned\
 	ft_printf\
+	ft_strchr\
 
 Compiler = gcc
 
@@ -34,7 +35,7 @@ CFILES = $(files:%=%.c)
 
 OFILES = $(files:%=$.o)
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 all: $(NAME)
 
