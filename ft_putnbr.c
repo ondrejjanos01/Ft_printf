@@ -6,34 +6,48 @@
 /*   By: ojanos <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:39:12 by ojanos            #+#    #+#             */
-/*   Updated: 2024/06/11 18:44:11 by ojanos           ###   ########.fr       */
+/*   Updated: 2024/06/20 20:00:33 by ojanos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n)
+static size_t	i_digits(int n)
 {
-	long	nbl;
-	char	c[10];
-	short	i;
+	size_t	digits;
 
-	i = 0;
-	nbl = n;
-	if (nbl == 0)
-		write(1, "0", 1);
-	if (nbl < 0)
+	digits = 0;
+	if (n <= 0)
+		digits += 1;
+	while (n != 0)
 	{
-		nbl *= -1;
-		write(1, "-", 1);
+		n /= 10;
+		digits += 1;
 	}
-	if (nbl != 0)
+	return (digits);
+}
+
+static void	put_int(int n)
+{
+	const char	digits [] = "0123456789";
+
+	if (n > 9)
+		put_int(n / 10);
+	write(STDOUT_FILENO, &digits[n % 10], 1);
+}
+
+int	ft_putnbr(int n)
+{
+	int	len;
+
+	if (n == INT_MIN)
+		return ((write(STDOUT_FILENO, "-2147483648", 11)));
+	len = i_digits(n);
+	if (n < 0)
 	{
-		c[i++] = (nbl % 10) + '0';
-		nbl /= 10;
+		write(STDOUT_FILENO, "-", 1);
+		n *= -1;
 	}
-	while (i > 0)
-	{
-		write(1, &c[--i], 1);
-	}
+	put_int(n);
+	return (len);
 }

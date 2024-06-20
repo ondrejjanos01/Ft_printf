@@ -33,7 +33,7 @@ OUTN = $(Library).a
 
 CFILES = $(files:%=%.c)
 
-OFILES = $(files:%=$.o)
+OFILES = $(files:%=%.o)
 
 NAME = libftprintf.a
 

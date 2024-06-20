@@ -22,14 +22,14 @@
 # include <string.h>
 # include <stdbool.h>
 
-int	ft_printf(const char *str, ...);
-int	ft_printadress(void *format);
-int	ft_hexaprint(unsigned int nbr, bool upper_case);
-void	ft_putchar(char c);
-void	ft_putnbr(int n);
-void	ft_putstr(char *s);
+int		ft_printf(const char *str, ...);
+int		ft_printadress(void *format);
+int		ft_hexaprint(unsigned int nbr, char format);
+int		ft_putchar(char c);
+int		ft_putnbr(int n);
+int		ft_putstr(char const *s);
 size_t	ft_strlen(const char *s);
-int	ft_unsigned(unsigned long n);
+int		ft_unsigned(unsigned long n);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
