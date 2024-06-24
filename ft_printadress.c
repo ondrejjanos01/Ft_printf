@@ -30,7 +30,7 @@ int	ft_printadress(void *format)
 	const char		*base;
 
 	if (!format)
-		return (write(1, "0x0", 3));
+		return (write(1, "(nil)", 5));
 	n = (unsigned long)format;
 	base = "0123456789abcdef";
 	len = write(1, "0x", 2);
